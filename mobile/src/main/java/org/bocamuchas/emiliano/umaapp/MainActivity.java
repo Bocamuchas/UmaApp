@@ -1,39 +1,30 @@
 package org.bocamuchas.emiliano.umaapp;
 
-import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
-import android.view.Menu;
-import android.view.MenuItem;
+import android.app.ListActivity;
+import android.widget.ArrayAdapter;
 
 
-public class MainActivity extends ActionBarActivity {
+public class MainActivity extends ListActivity {
+
+
+    String[] countries;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
-    }
+        countries = getResources().getStringArray(R.array.countries);
+        this.setListAdapter(new ArrayAdapter<String>(
+                this,
+                R.layout.activity_main,
+                R.id.countryName,
+                countries
+        ));
 
+        /*ListView listView = getListView();
 
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.menu_main, menu);
-        return true;
-    }
+        listView.setOn
 
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        // Handle action bar item clicks here. The action bar will
-        // automatically handle clicks on the Home/Up button, so long
-        // as you specify a parent activity in AndroidManifest.xml.
-        int id = item.getItemId();
-
-        //noinspection SimplifiableIfStatement
-        if (id == R.id.action_settings) {
-            return true;
-        }
-
-        return super.onOptionsItemSelected(item);
+        setContentView(R.layout.activity_main);*/
     }
 }
