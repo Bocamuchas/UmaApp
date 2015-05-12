@@ -2,7 +2,11 @@ package org.bocamuchas.emiliano.umaapp;
 
 import android.os.Bundle;
 import android.app.ListActivity;
+import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.ListView;
+import android.widget.Toast;
 
 
 public class MainActivity extends ListActivity {
@@ -21,10 +25,16 @@ public class MainActivity extends ListActivity {
                 countries
         ));
 
-        /*ListView listView = getListView();
+        ListView listView = getListView();
 
-        listView.setOn
+        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                String country = countries[position];
+                Toast.makeText(MainActivity.this, String.format("%s was chosen.", country), Toast.LENGTH_SHORT).show();
+            }
+        });
 
-        setContentView(R.layout.activity_main);*/
+        /// setContentView(R.layout.activity_main);
     }
 }
